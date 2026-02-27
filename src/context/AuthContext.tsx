@@ -17,12 +17,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                setLoading(false);
-            } else {
-                signInAnonymously(auth).catch((error) => console.error("Auto-login failed:", error));
-            }
+            setUser(user);
+            setLoading(false);
         });
 
         return () => unsubscribe();

@@ -168,10 +168,11 @@ export const SidebarLink = ({
   className?: string;
   props?: LinkProps;
 }) => {
-  const { open, animate } = useSidebar();
+  const { open, setOpen, animate } = useSidebar();
   return (
     <Link
       href={link.href}
+      onClick={() => setOpen(false)}
       className={cn(
         "flex items-center justify-start gap-4 group/sidebar py-2.5 px-3 rounded-xl transition-all border border-transparent hover:border-white/10 hover:bg-white/5 hover:backdrop-blur-md",
         className

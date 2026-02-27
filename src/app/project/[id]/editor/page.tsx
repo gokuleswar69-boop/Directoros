@@ -271,21 +271,21 @@ export default function UnifiedEditorPage({ params }: { params: Promise<{ id: st
                 </div>
 
                 <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap">
-                    {/* Mobile Mode Toggle — compact icon buttons */}
+                    {/* Mobile Mode Toggle */}
                     <div className="flex sm:hidden bg-[#0A0A0A] rounded-lg border border-white/10 p-0.5">
                         <button
                             onClick={() => setIsAiMode(false)}
-                            className={`p-1.5 rounded-md transition-all ${!isAiMode ? 'bg-white/10 text-white' : 'text-neutral-500'}`}
-                            title="Manual Script"
+                            className={`flex items-center gap-1.5 px-2 py-1.5 rounded-md transition-all text-[11px] font-bold ${!isAiMode ? 'bg-white/10 text-white' : 'text-neutral-500'}`}
                         >
                             <FileText size={14} />
+                            <span>Manual</span>
                         </button>
                         <button
                             onClick={() => setIsAiMode(true)}
-                            className={`p-1.5 rounded-md transition-all ${isAiMode ? 'bg-white/10 text-white' : 'text-neutral-500'}`}
-                            title="AI Writer"
+                            className={`flex items-center gap-1.5 px-2 py-1.5 rounded-md transition-all text-[11px] font-bold ${isAiMode ? 'bg-white/10 text-white' : 'text-neutral-500'}`}
                         >
                             <Wand2 size={14} />
+                            <span>AI Writer</span>
                         </button>
                     </div>
 
@@ -334,7 +334,7 @@ export default function UnifiedEditorPage({ params }: { params: Promise<{ id: st
             <div className="flex flex-1 overflow-hidden relative w-full">
 
                 {/* Left/Center Editor Area */}
-                <div 
+                <div
                     className={`flex-1 h-full transition-all duration-300 ease-in-out bg-[#0F0F0F] flex flex-col items-center py-6 sm:py-12 overflow-y-auto w-full origin-center`}
                     style={{ paddingRight: isAiMode ? (typeof window !== 'undefined' && window.innerWidth >= 640 ? '420px' : '0') : '0' }}
                 >
@@ -368,11 +368,11 @@ export default function UnifiedEditorPage({ params }: { params: Promise<{ id: st
 
                 {/* Right Sidebar: AI Director Chat */}
                 <div
-                    className={`absolute top-4 right-4 bottom-4 w-[400px] bg-gradient-to-b from-[#e8f6f8]/95 to-[#d6f0f5]/95 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 ease-in-out flex flex-col z-30 border border-white/60 rounded-3xl overflow-hidden ${!isAiMode ? 'pointer-events-none opacity-0 translate-x-8' : 'pointer-events-auto opacity-100 translate-x-0'}`}
+                    className={`absolute top-4 right-4 bottom-4 w-[400px] bg-gradient-to-b from-[#e8f6f8]/95 to-[#d6f0f5]/95 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 ease-in-out flex flex-col z-[60] border border-white/60 rounded-3xl overflow-hidden ${!isAiMode ? 'pointer-events-none opacity-0 translate-x-8' : 'pointer-events-auto opacity-100 translate-x-0'}`}
                 >
                     {/* Header */}
                     <div className="flex items-center gap-3 p-4 shrink-0">
-                        <button 
+                        <button
                             onClick={() => setIsAiMode(false)}
                             className="text-neutral-500 hover:text-neutral-800 transition-colors p-1 rounded-full hover:bg-black/5 mr-1"
                         >
@@ -445,8 +445,8 @@ export default function UnifiedEditorPage({ params }: { params: Promise<{ id: st
 
                                 {/* Bubble */}
                                 <div className={`p-3.5 rounded-2xl text-[13px] leading-relaxed whitespace-pre-wrap shadow-sm 
-                                    ${msg.role === 'user' 
-                                        ? 'bg-white text-neutral-800 rounded-tr-sm border border-neutral-100' 
+                                    ${msg.role === 'user'
+                                        ? 'bg-white text-neutral-800 rounded-tr-sm border border-neutral-100'
                                         : 'bg-white text-neutral-800 border-[1.5px] border-[#4fabc4]/30 rounded-tl-sm'
                                     }`}
                                 >

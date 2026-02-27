@@ -12,8 +12,18 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase (Singleton pattern to avoid re-initialization in Next.js)
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
-const db = getFirestore(app);
+let app;
+let auth: any;
+let db: any;
+
+if (typeof window !== "undefined" || process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+    if (!getApps().length) {
+        app = initializeApp(firebaseConfig);
+    } else {
+        app = getApp();
+    }
+    auth = getAuth(app);
+    db = getFirestore(app);
+}
 
 export { app, auth, db };

@@ -122,7 +122,7 @@ function SceneCard({ scene, id, projectId, progress, onEdit }: { scene: ParsedSc
     };
 
     return (
-        <div ref={setNodeRef} style={style} className="touch-none mb-4 perspective-1000">
+        <div ref={setNodeRef} style={style} className="touch-pan-y mb-4 perspective-1000">
             <div
                 ref={cardRef}
                 onMouseMove={handleMouseMove}

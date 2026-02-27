@@ -36,7 +36,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             <GlobalSidebar />
 
             {/* Main Content */}
-            <main className="flex-1 overflow-auto md:rounded-tl-2xl md:border-t md:border-l border-white/5 bg-[#0A0A0A] flex flex-col w-full h-full relative overflow-x-hidden">
+            <main className="flex-1 overflow-auto md:rounded-tl-2xl md:border-t md:border-l border-white/5 bg-[#0A0A0A] flex flex-col w-full h-full relative overflow-x-hidden pb-20 md:pb-0">
                 {children}
             </main>
 

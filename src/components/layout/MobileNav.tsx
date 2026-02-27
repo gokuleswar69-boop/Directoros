@@ -15,7 +15,7 @@ export default function MobileNav() {
     const pathname = usePathname();
 
     return (
-        <nav className="shrink-0 md:hidden bg-[#0A0A0A] border-t border-white/10">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#0A0A0A] border-t border-white/10 pb-[env(safe-area-inset-bottom)]">
             <div className="flex items-center justify-around px-2 h-16">
                 {navItems.map((item) => {
                     const isActive = pathname.startsWith(item.href);
@@ -49,8 +49,6 @@ export default function MobileNav() {
                     );
                 })}
             </div>
-            {/* Extra padding for phones with home indicator */}
-            <div className="h-[env(safe-area-inset-bottom,0px)]" />
         </nav>
     );
 }
